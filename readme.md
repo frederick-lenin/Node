@@ -7,3 +7,8 @@ cmd : pip install -r requirements.txt
 
 Now Run Python Server
 cmd : python manage.py runserver 0.0.0.0:8006
+
+
+DOCKER
+cmd : docker build --tag python-django .
+cmd : docker run --publish 8006:8006 python-django
