@@ -43,10 +43,10 @@ class LoginAPIView(APIView):
         try:
             user = CustomUser.objects.get(email=email)
         except CustomUser.DoesNotExist:
-            raise AuthenticationFailed("Invalid email or password.")
+            raise AuthenticationFailed("Invalid email.")
 
         if not user.check_password(password):
-            raise AuthenticationFailed("Invalid email or password.")
+            raise AuthenticationFailed("Invalid password.")
         
         if not user.is_active:
             raise AuthenticationFailed("User account is not active.")
